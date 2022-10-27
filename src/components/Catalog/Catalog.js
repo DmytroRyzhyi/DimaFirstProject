@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Catalog.module.scss';
 import CatalogItem from '../CatalogItem/CatalogItem';
 
@@ -34,7 +33,6 @@ const Catalog = () => {
   return (<div className={styles.Catalog}>
     <div class="album py-5 bg-light">
       <div class="container">
-
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
          
             {
