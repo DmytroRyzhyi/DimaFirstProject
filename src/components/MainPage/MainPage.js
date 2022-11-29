@@ -1,16 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './MainPage.module.scss';
-import Catalog from '../Catalog/Catalog';
+import './MainPage.scss';
 
 const MainPage = () => (
-  <div className={styles.MainPage}>
-<Catalog/>
+  <div className="MainPage pt-5">
+    
+    
   </div>
 );
+
 
 MainPage.propTypes = {};
 
 MainPage.defaultProps = {};
+
 
 export default MainPage;

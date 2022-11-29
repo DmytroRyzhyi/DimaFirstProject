@@ -1,0 +1,40 @@
+{
+"productList": [
+    {
+      "id": 1,
+      "name": "pan Tefal",
+      "material": "steel",
+      "price": 200,
+      "brand": "Tefal",
+      "shape": "Circle",
+      "url":"https://content2.rozetka.com.ua/goods/images/big/289458040.jpg"
+    },
+    {
+      "id": 2,
+      "name": "pan Brisol",
+      "material": "ceramic",
+      "price": 150,
+      "brand": "Brisol",
+      "shape": "Square",
+      "url":"https://content1.rozetka.com.ua/goods/images/big_tile/205515751.jpg"
+    },
+    {
+      "id": 3,
+      "name": "pan Ardesto",
+      "material": "marble",
+      "price": 350,
+      "brand": "Ardesto",
+      "shape": "Triangle",
+      "url":"https://content2.rozetka.com.ua/goods/images/big_tile/44394912.jpg"
+    },
+     {
+      "id": 4,
+      "name": "pan Ardesto",
+      "material": "marble",
+      "price": 350,
+      "brand": "Ardesto",
+      "shape": "Square",
+      "url":"https://content.rozetka.com.ua/goods/images/big_tile/44396361.jpg"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-// import styles from './Catalog.module.scss';
 import CatalogItem from '../CatalogItem/CatalogItem';
 import './Catalog.scss';
+import data from "../../api/data.json";
 
 const BRANDS = {
   TEFAL: 'Tefal',
@@ -19,32 +19,9 @@ const Catalog = () => {
   const [brand, setBrand] = useState([]);
   const [shape, setShape] = useState([]);
 
-  const productList = [
-    {
-      "id": 1,
-      "name": "pan Tefal",
-      "material": "steel",
-      "price": 200,
-      "brand": "Tefal",
-      "shape": "Circle"
-    },
-    {
-      "id": 2,
-      "name": "pan Brisol",
-      "material": "ceramic",
-      "price": 150,
-      "brand": "Brisol",
-      "shape": "Square"
-    },
-    {
-      "id": 3,
-      "name": "pan Ardesto",
-      "material": "marble",
-      "price": 350,
-      "brand": "Ardesto",
-      "shape": "Triangle"
-    }
-  ];
+  const productList = data.productList;
+  
+
 
   const handleFilterByBrand = (event) => {
     const { value } = event.target
@@ -69,15 +46,14 @@ const Catalog = () => {
   }
 
   return (<div className='Catalog'>
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div className='filter'>
-          <div>Filters</div>
-          <div>
+    <div className='containerOfFilter'>
+    <div className='filter'>
+          <h1>Filters by:</h1>
+          <div className='filterByBrands'>
             <div>
-              Brands:
+              <h3>Brands:</h3>
             </div>
-            <div>
+            <div className='brand'>
               <div>
               <input id={BRANDS.TEFAL} type="checkbox" checked={brand.includes(BRANDS.TEFAL)} value={BRANDS.TEFAL} onChange={handleFilterByBrand} />
               <label htmlFor={BRANDS.TEFAL}>{BRANDS.TEFAL}</label>
@@ -92,11 +68,11 @@ const Catalog = () => {
             </div>
             </div>
           </div>
-          <div>
+          <div className='filterByShapes'>
             <div>
-              Shapes:
+              <h3>Shapes:</h3>
             </div>
-            <div>
+            <div className='shape'>
               <div>
               <input id={SHAPES.CIRCLE} type="checkbox" checked={shape.includes(SHAPES.CIRCLE)} value={SHAPES.CIRCLE} onChange={handleFilterByShape} />
               <label htmlFor={SHAPES.CIRCLE}>{SHAPES.CIRCLE}</label>
@@ -111,16 +87,25 @@ const Catalog = () => {
             </div>
             </div>
           </div>
-        </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    </div>
+    </div>
+            
+    
+    <div className='album py-5 bg-light'>
+
+        <div className='row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3'>
          
             {
               products().map(item => {
                 return (
                   <div class="col" key={item.id}>
-                    <CatalogItem name={item.name}
+                    <CatalogItem
+                      id={item.id}
+                      url={item.url}
+                      name={item.name}
                       brand={item.brand}
                       price={item.price}
+                      
                        />
                     </div>)
               })
@@ -128,12 +113,7 @@ const Catalog = () => {
           </div>
         </div>
       </div>
-    </div>
   )
 };
-
-Catalog.propTypes = {};
-
-Catalog.defaultProps = {};
 
 export default Catalog;

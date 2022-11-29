@@ -1,15 +1,53 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Box.module.scss';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-const Box = () => (
-  <div className={styles.Box}>
-    Box Component
-  </div>
-);
+import './Box.scss';
 
-Box.propTypes = {};
 
-Box.defaultProps = {};
+
+
+const Box = () => {
+
+  const [imageList, setImageList] = useState([]);
+
+
+
+  const url  = 'https://picsum.photos/v2/list'
+
+  const loadImage = () => {
+    fetch(url, { method: "GET", })
+      .then(res => {
+      return res.json()
+      
+      })
+      .then(newRes => {
+      const newList = newRes.map(item => item.download_url)
+      setImageList(newList)
+    
+    })
+}
+
+  useEffect(() => { }, [imageList])  
+  
+
+  return(
+  <div className='Box'>
+      <button onClick={loadImage} >ClickMe</button>
+      
+      {
+        imageList.map(item => {
+          return (
+            <div key={item}>
+              <img width='500px' src={item} alt="img"/>
+              
+            </div>
+          )
+        })
+      }
+    </div>
+  )
+};
+
 
 export default Box;

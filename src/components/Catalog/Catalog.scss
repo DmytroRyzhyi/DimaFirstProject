@@ -1,8 +1,40 @@
 .Catalog {
+  width: 100%;
+    margin-top: 100px;
 }
-.container{
+.containerOfFilter{
+}
+h1{
+  color:black; 
+} 
 
+h3 {
+  color: black;
 }
 .filter{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  gap: 20px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.filterByBrands,
+.filterByShapes
+{
+display: flex;
+flex-direction: row;
+align-items:center;
+gap: 12px;
+color: gray;
+font-size: larger;
+
+}
+
+.brand,
+.shape {
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
 }

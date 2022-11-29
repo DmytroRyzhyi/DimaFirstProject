@@ -1,29 +1,29 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Header.module.scss';
+import './Header.scss';
 import Menu from '../Menu/Menu';
-
-const Header = () => (
-  <div className={styles.Header}>
-    <header className="p-3 text-bg-danger">
-  <div className="container">
-    <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-      </a>
-
-          <Menu />
-          
+import { useNavigate } from 'react-router-dom';
 
 
+
+const Header = () => {
+
+  const navigate = useNavigate();
+
+  return(
+  <div className='navbar navbar-expand-md fixed-top p-3 text-bg-danger'>
+    <div className="container-fluid">
+      <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <Menu />
+      </div>
       <div className="text-end">
-        <button type="button" className="btn btn-outline-light me-2">Login</button>
-        <button type="button" className="btn btn-warning">Sign-up</button>
+        <button type="button" className="btn btn-outline-light me-2" onClick={() => navigate('/register')} >Login</button>
+        
+        <button type="button" className="btn btn-warning" onClick={()=> navigate ('/sign')} >Sign-in</button>
       </div>
     </div>
-  </div>
-</header>
-  </div>
-);
+    </div>
+  )
+};
 
 Header.propTypes = {};
 

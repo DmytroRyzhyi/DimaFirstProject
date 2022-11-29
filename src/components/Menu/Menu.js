@@ -1,16 +1,20 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './Menu.module.scss';
+import { NavLink } from 'react-router-dom';
+import './Menu.scss';
 
 const Menu = () => {
-const menuList = ['Home', 'Features', 'Pricing', 'FAQs', 'About'];
+const menuList = ['Home', 'Catalog', 'Pricing', 'FAQs', 'About'];
   
-  return (<div className={styles.Menu}>
+  return (<div className="Menu">
     <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
      {
     menuList.map(item => {
         return (
-            <li className="nav-link px-4 text-white" key={item}>{item}</li>
+          <li key={item}>
+             <NavLink className="menu-link px-4"  to={item}>
+              {item}
+              </NavLink>
+          </li>
         )
     })
 }
